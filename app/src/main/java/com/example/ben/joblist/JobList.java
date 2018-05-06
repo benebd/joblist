@@ -41,14 +41,7 @@ public class JobList extends AppCompatActivity {
         String name = intent1.getStringExtra("userName");
         Toast.makeText(getApplicationContext(),"name"+name,Toast.LENGTH_LONG).show();
         toolbar.setTitle( name);
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
 
         setupData();
 

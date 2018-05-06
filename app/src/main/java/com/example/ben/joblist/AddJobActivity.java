@@ -39,7 +39,7 @@ public class AddJobActivity extends AppCompatActivity   implements AdapterView.O
     EditText dateEt,timeEt;
     public String selFromAddress;
     public String selToAddress;
-
+    public String Time;
     private ArrayList<Job> jobs;
 
     @Override
@@ -56,17 +56,7 @@ public class AddJobActivity extends AppCompatActivity   implements AdapterView.O
         setSupportActionBar(toolbar);
         toolbar.setTitle("New Job");
         setupData();
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
 
-
-
-        });
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -90,7 +80,7 @@ public class AddJobActivity extends AppCompatActivity   implements AdapterView.O
         String formattedTime = dft.format(c);
 
 
-
+        Time = formattedDate+" "+formattedTime;
         dateEt.setText(formattedDate);
         timeEt.setText(formattedTime);
         spinner = (Spinner) findViewById(R.id.spinner3);
@@ -148,7 +138,7 @@ try{
         Company comNO2 = matchNameToNo(selToAddress);
         pairValue.put("comTo", comNO2.getComNo());
         pairValue.put("status", "Ordered");
-        pairValue.put("orderDateTime", "1");
+        pairValue.put("orderDateTime", Time);
         pairValue.put("pickupDateTime", "1");
         pairValue.put("deliveryDateTime", "1");
         int rowPosition = (int) db.insert("Job", null, pairValue);
